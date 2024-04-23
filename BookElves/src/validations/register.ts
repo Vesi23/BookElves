@@ -1,6 +1,6 @@
 import { getUserByUsername } from "../service/user";
 
-export const CheckRegister = async (username: string, email: string, password: string) => {
+export const checkRegister = async (username: string, email: string, password: string) => {
   const error = {
     username: '',
     email: '',
