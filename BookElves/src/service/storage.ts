@@ -1,6 +1,7 @@
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "../config/firebase-config";
 
+
 /**
  * Saves an image file to Firebase storage.
  * @param file - The image file to be saved.
