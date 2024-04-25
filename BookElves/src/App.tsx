@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './config/firebase-config';
 import { getUserData } from './service/user';
+import Profile from './views/Profile/Profile';
 
 function App() {
   const [context, setContext] = useState({
@@ -41,6 +42,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path='/profile' element={<Profile/>} />
               <Route path="*" element={<h1>Not Found</h1>} />
             </Routes>
           </div>
