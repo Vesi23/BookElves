@@ -1,0 +1,13 @@
+.nav-links a,
+.nav-links button {
+    display: block;
+    position: relative;
+    right: 700px;
+}
+
+.logout{
+    display: block;
+    position: relative;
+    left: 700px;
+    bottom: 200px;
+}
