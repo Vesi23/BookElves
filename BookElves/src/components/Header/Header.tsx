@@ -22,6 +22,7 @@ const Header = () => {
             {!user && <NavLink to="/login" className='login'>Login</NavLink>}
             {user && <button onClick={logout} className='logout'>Logout</button>}
             {user && <NavLink to="/profile" className='profile'>Profile</NavLink>}
+            {user && <NavLink to="/create" className='create-post'>Create</NavLink>}
             
         </>
     )
