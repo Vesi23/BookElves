@@ -12,6 +12,8 @@ import { auth } from './config/firebase-config';
 import { getUserData } from './service/user';
 import Profile from './views/Profile/Profile';
 import CreatePost from './views/Create/CreatePost';
+import { Toast } from 'react-bootstrap';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   const [context, setContext] = useState({
@@ -36,6 +38,7 @@ function App() {
       <BrowserRouter>
         <AppContext.Provider value={{ ...context, setContext }}>
           <Header />
+          <Toaster />
           <div className="main-content">
             <Routes>
               <Route path="/" element={<Home />} />
