@@ -3,6 +3,7 @@ import { useAppContext } from "../../context/appContext";
 import { toast } from 'react-hot-toast';
 import { addPost } from "../../service/post";
 import { Button } from "react-bootstrap";
+import './CreatePost.css';
 
 const CreatePost = () => {
 
@@ -13,10 +14,13 @@ const CreatePost = () => {
         description: '',
         imagePost: '',
         image: '',
+        pagesRead: '',
+        totalPages: '',
     });
 
     const [category, setCategory] = useState('');
-    const [pageCounter, setPageCounter] = useState(1);
+    const [totalPages, setTotalPages] = useState(0);
+const [pagesRead, setPagesRead] = useState(0);
 
     const handleSubmit = (event: any) => {
         setCategory(event.target.value);
@@ -71,22 +75,45 @@ const CreatePost = () => {
           description: '',
           imagePost: '',
           image: '',
+          pagesRead: '',
+          totalPages: '',
         });
       
         setCategory('');
         toast.success('Post created successfully');
       };
+     
+      // const handlePageCounter = () => {
+      //   // Use totalPages and pagesRead here...
+      //   setPagesRead(pagesRead + 1);
+      //   setTotalPages(totalPages);
+      // };
+
         return (
-            <>
+            <div className="create-post-div">
             <h2 id='create-h2'>Create post</h2>
             <label htmlFor="input-title" id='input-title'>Name of the Book:</label>
             <input value={post.title} onChange={e => updatePost(e.target.value, 'title')} type="text" name="input-title" id="input-title" /><br />
             <label htmlFor="input-description" id='input-description'>Description:</label><br />
-            <textarea value={post.description} onChange={e => updatePost(e.target.value, 'description')} name="input-description" id="input-description" cols={30} rows={10}></textarea><br /><br />
+            <textarea value={post.description} onChange={e => updatePost(e.target.value, 'description')} name="input-description" id="input-description" cols={40} rows={10}></textarea><br /><br />
             <label htmlFor="input-image" id='input-image'>Image:</label>
             <input id="input-image" type="file" accept="image/*" onChange={e => updateImage(e.target.files, 'imagePost')} /><br />
+            <label htmlFor="total-pages">Total Pages:</label>
+<input type="text" id="total-pages" value={totalPages} onChange={e => {
+  if (!isNaN(Number(e.target.value))) {
+    // setTotalPages(e.target.value);
+  }
+}} />
+
+<label htmlFor="pages-read">Pages Read:</label>
+<input type="text" id="pages-read" value={pagesRead} onChange={e => {
+  if (!isNaN(Number(e.target.value))) {
+    // setPagesRead(e.target.value);
+  }
+}} />
             <Button id='btn-create' onClick={createPost}>Create</Button>
 
-            </>
+
+            </div>
         )};
     export default CreatePost;
