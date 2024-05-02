@@ -6,7 +6,8 @@
   }
   
 .logout{
-    display: block;
+    display: flex;
     position: relative;
     left: 1380px;
+    z-index: 999; /* cklick on the botton */
 }
