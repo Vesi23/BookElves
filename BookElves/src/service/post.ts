@@ -28,7 +28,7 @@ export const getAllPosts = async (search: string) => {
         id: key,
         ...snapshot.val()[key],
         createdOn: new Date(snapshot.val()[key].createdOn).toString(),
-        likedBy: snapshot.val()[key].likedBy ? Object.keys(snapshot.val()[key].likedBy) : [],
+        // likedBy: snapshot.val()[key].likedBy ? Object.keys(snapshot.val()[key].likedBy) : [],
         imageUrl: snapshot.val().imageUrl,
         pagesRead:snapshot.val().pagesRead,
         totalPages: snapshot.val().totalPages,

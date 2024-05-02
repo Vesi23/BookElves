@@ -30,6 +30,7 @@ const Header = () => {
       {user && <NavLink to="/Like" className='create-post'><img src={balloonHeart} alt="Balloon Heart" /></NavLink>}
       {user && <NavLink to="/create" className='create-post'><img src={plusCircle} alt="Plus Circle" /></NavLink>}
       {user && <NavLink to="/friends" className='friends'><img src={peopleFill} alt="Friends" /></NavLink>}
+      {user && <NavLink to="/posts" className='posts'>Posts</NavLink>}
       <NavLink to="/about" className='about'>About</NavLink>
       {!user && <NavLink to="/register" className='register'>Register</NavLink>}
       {!user && <NavLink to="/login" className='login'>Login</NavLink>}

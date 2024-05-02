@@ -14,6 +14,7 @@ import Profile from './views/Profile/Profile';
 import CreatePost from './views/Create/CreatePost';
 import { Toast } from 'react-bootstrap';
 import { Toaster } from 'react-hot-toast';
+import Posts from './views/Posts/Posts';
 
 function App() {
   const [context, setContext] = useState({
@@ -48,6 +49,7 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path='/profile' element={<Profile/>} />
               <Route path='/create' element={<CreatePost/>} />
+              <Route path='/posts' element={<Posts/>} />
               <Route path="*" element={<h1>Not Found</h1>} />
             </Routes>
           </div>
