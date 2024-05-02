@@ -3,7 +3,7 @@ import { db } from '../config/firebase-config';
 import { getAllUsers } from './user';
 
 
-export const addPost = async (author: string, title: string, description: string, imagePost: string, image: string, category: string) => {
+export const addPost = async (author: string, title: string, description: string, imagePost: string, image: string, category: string, pagesRead:number, totalPages:number) => {
     return push(ref(db, 'posts'), {
         author,
         title,
@@ -13,6 +13,8 @@ export const addPost = async (author: string, title: string, description: string
         createdOn: Date.now(),
         image,
         category,
+        pagesRead: Number(pagesRead),
+        totalPages: Number(totalPages),
     });
 };
 
@@ -28,6 +30,8 @@ export const getAllPosts = async (search: string) => {
         createdOn: new Date(snapshot.val()[key].createdOn).toString(),
         likedBy: snapshot.val()[key].likedBy ? Object.keys(snapshot.val()[key].likedBy) : [],
         imageUrl: snapshot.val().imageUrl,
+        pagesRead:snapshot.val().pagesRead,
+        totalPages: snapshot.val().totalPages,
     }))
         .filter(p => p.title?.toLowerCase().includes(search.toLowerCase()));
 
@@ -46,6 +50,8 @@ export const getAllPostsByUser = async (username: string) => {
         createdOn: new Date(snapshot.val()[key].createdOn).toString(),
         likedBy: snapshot.val()[key].likedBy ? Object.keys(snapshot.val()[key].likedBy) : [],
         imageUrl: snapshot.val().imageUrl,
+        pagesRead:snapshot.val().pagesRead,
+        totalPages: snapshot.val().totalPages,
     }))
 
     return posts.filter(p => p.author === username);
@@ -64,6 +70,8 @@ export const getPostById = async (id: string) => {
         createdOn: new Date(snapshot.val().createdOn).toString(),
         likedBy: snapshot.val().likedBy ? Object.keys(snapshot.val().likedBy) : [],
         imageUrl: snapshot.val().imageUrl,
+        pagesRead:snapshot.val().pagesRead,
+        totalPages: snapshot.val().totalPages,
     }];
 
     return post;
@@ -117,5 +125,7 @@ export const getPostsByCategory = async (category: string) => {
         createdOn: new Date(snapshot.val()[key].createdOn).toString(),
         likedBy: snapshot.val()[key].likedBy ? Object.keys(snapshot.val()[key].likedBy) : [],
         imageUrl: snapshot.val().imageUrl,
+        pagesRead:snapshot.val().pagesRead,
+        totalPages: snapshot.val().totalPages,
     }))
 }
