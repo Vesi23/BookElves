@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-
+    z-index: 999; /* cklick on the botton */
   }
   
 .logout{
