@@ -8,13 +8,14 @@ export const addPost = async (author: string, title: string, description: string
         author,
         title,
         description,
+        image,
         imagePost,
         likes: 0,
         createdOn: Date.now(),
-        image,
         category,
         pagesRead: Number(pagesRead),
         totalPages: Number(totalPages),
+
     });
 };
 
@@ -28,7 +29,7 @@ export const getAllPosts = async (search: string) => {
         id: key,
         ...snapshot.val()[key],
         createdOn: new Date(snapshot.val()[key].createdOn).toString(),
-        // likedBy: snapshot.val()[key].likedBy ? Object.keys(snapshot.val()[key].likedBy) : [],
+        likedBy: snapshot.val()[key].likedBy ? Object.keys(snapshot.val()[key].likedBy) : [],
         imageUrl: snapshot.val().imageUrl,
         pagesRead:snapshot.val().pagesRead,
         totalPages: snapshot.val().totalPages,
