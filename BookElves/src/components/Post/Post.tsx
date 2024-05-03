@@ -14,8 +14,8 @@ type Post = {
     imagePost: string;
     likedBy: string[];
     likes: number;
-    pagesRead: string;
-    totalPages: string;
+    pagesRead: number; // updated this line
+    totalPages: number; // updated this line
     title: string;
 
 };
@@ -26,34 +26,38 @@ type PostProps = {
 };
 
 const Post: React.FC<PostProps> = ({ post, setPosts }) => {
-    const { user, userData } = useAppContext();
+    const { userData } = useAppContext();
+    // const [likesCount, setLikesCount] = useState(post.likes);
+    // const [likedBy, setLikedBy] = useState(post.likedBy);
 
     const handleLike = async () => {
         if (userData) {
-            if (userData.likedPosts && userData.likedPosts.includes(post.id)) {
-                await removeLike(userData.username, post.id, post.likes);
+            if (post.likedBy.includes(userData.username)) {
+                await removeLike(userData.username, post.id, post.likes - 1);
             } else {
-                await addLike(userData.username, post.id, post.likes);
+                await addLike(userData.username, post.id, post.likes + 1);
             }
-        }
+        };
     }
-    // console.log(post.author);
 
+    // console.log(post.pagesRead, post.totalPages); // should log 23 and 200
 
     return (
         <>
             <div className="post">
                 <Image author={post.author} />
                 <div id="user-info">
-                    <NavLink to={`profile/${post.author}`}>{post.author}</NavLink>                    <p className='date'>{new Date(post.createdOn).toLocaleDateString('bg-BG')}</p>
+                    <NavLink to={`/profile/${post.author}`}>{post.author}</NavLink>
+                    <p className='date'>{new Date(post.createdOn).toLocaleDateString('bg-BG')}</p>
                 </div>
                 <div id="post-info">
                     <h3>{post.title}</h3>
                     <p className="description">{post.description}</p>
                     {post.imagePost && <img src={post.image} alt="post" />}
-
+                    {post.pagesRead && <p>Pages read: {post.pagesRead}/{post.totalPages}</p>}
 
                 </div>
+
             </div>
         </>
     );
