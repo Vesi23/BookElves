@@ -1,8 +1,10 @@
 
+import { Button } from "react-bootstrap";
 import { useAppContext } from "../../context/appContext";
 import { removeLike, addLike } from "../../service/post";
 import Image from "../Images/Images";
 import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 type Post = {
     id: string;
@@ -22,21 +24,37 @@ type Post = {
 
 type PostProps = {
     post: Post;
-    setPosts: (posts: Post[]) => void;
+    // setPosts: (posts: Post[]) => void;
+    setPosts: any;
 };
 
 const Post: React.FC<PostProps> = ({ post, setPosts }) => {
     const { userData } = useAppContext();
-    // const [likesCount, setLikesCount] = useState(post.likes);
-    // const [likedBy, setLikedBy] = useState(post.likedBy);
 
     const handleLike = async () => {
         if (userData) {
-            if (post.likedBy.includes(userData.username)) {
+            if (post.likedBy.includes(userData?.username)) {
                 await removeLike(userData.username, post.id, post.likes - 1);
+             
             } else {
                 await addLike(userData.username, post.id, post.likes + 1);
+              
             }
+
+            setPosts((currentPosts: any) => currentPosts.map((p: any) => {
+                if (p.id === post.id) {
+                    let updatedPost = { ...p };
+                    if (updatedPost.likedBy.includes(userData.username)) {
+                        updatedPost.likes -= 1;
+                        updatedPost.likedBy = updatedPost.likedBy.filter((u:any) => u !== userData.username);
+                    } else {
+                        updatedPost.likes += 1;
+                        updatedPost.likedBy = [...updatedPost.likedBy, userData.username];
+                    }
+                    return updatedPost;
+                }
+                return p;
+            }));
         };
     }
 
@@ -57,7 +75,7 @@ const Post: React.FC<PostProps> = ({ post, setPosts }) => {
                     {post.pagesRead && <p>Pages read: {post.pagesRead}/{post.totalPages}</p>}
 
                 </div>
-
+<Button onClick={handleLike} variant="outline-primary">{post.likedBy.includes(userData?.username) ? 'Unlike' : 'Like'} {post.likes}</Button>
             </div>
         </>
     );
