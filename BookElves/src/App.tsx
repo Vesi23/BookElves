@@ -15,6 +15,9 @@ import CreatePost from './views/Create/CreatePost';
 import { Toast } from 'react-bootstrap';
 import { Toaster } from 'react-hot-toast';
 import Posts from './views/Posts/Posts';
+import ReadBook from './views/ReadBook/ReadBook';
+
+import BookSearch from './views/ReadBook/ReadBook';
 
 function App() {
   const [context, setContext] = useState({
@@ -51,6 +54,8 @@ function App() {
               <Route path='/profile/:username' element={<Profile/>} />
               <Route path='/create' element={<CreatePost/>} />
               <Route path='/posts' element={<Posts/>} />
+              <Route path='/read' element={<BookSearch/>}/>
+              {/* <Route path='/read/:id' element={<BookReader/>}/> */}
               <Route path="*" element={<h1>Not Found</h1>} />
             </Routes>
           </div>
