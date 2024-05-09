@@ -1,13 +1,15 @@
 .nav-links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    z-index: 999; /* cklick on the botton */
-  }
-  
-.logout{
-    display: flex;
-    position: relative;
-    left: 1380px;
-    z-index: 999; /* cklick on the botton */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 999;
+  /* cklick on the botton */
+}
+
+.logout {
+  display: flex;
+  position: relative;
+  left: 1380px;
+  z-index: 999;
+  /* cklick on the botton */
 }

@@ -13,24 +13,24 @@ const Posts = () => {
     const setSearchPosts = (value: string) => {
         setSearch({ search: value });
     }
-    useEffect(()=>{
+    useEffect(() => {
         getAllPosts(searchPosts).then(setPosts);
 
-    },[searchPosts]);
+    }, [searchPosts]);
 
     return (
         <>
-        <label htmlFor="search">Search</label>
-        <input type="text" id="search" value={searchPosts} onChange={(e) => setSearchPosts(e.target.value)} />
+            <label htmlFor="search">Search</label>
+            <input type="text" id="search" value={searchPosts} onChange={(e) => setSearchPosts(e.target.value)} />
 
-        {posts.length>0 ? (
-            posts.map((post) => (
-                <Post key={post.id} post={post} setPosts={setPosts} />
-            ))
+            {posts.length > 0 ? (
+                posts.map((post) => (
+                    <Post key={post.id} post={post} setPosts={setPosts} />
+                ))
 
-            ):
-            (<h1>No posts found</h1>)
-        }
+            ) :
+                (<h1>No posts found</h1>)
+            }
         </>
     );
 

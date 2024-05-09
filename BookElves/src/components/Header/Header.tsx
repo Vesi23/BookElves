@@ -15,7 +15,7 @@ import './Header.css';
 
 const Header = () => {
   const navigate = useNavigate();
-  const { user, userData, setContext } = useAppContext();
+  const { user, setContext } = useAppContext();
 
   const logout = async () => {
     await logoutUser();
