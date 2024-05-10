@@ -18,6 +18,7 @@ import Posts from './views/Posts/Posts';
 import ReadBook from './views/ReadBook/ReadBook';
 
 import BookSearch from './views/ReadBook/ReadBook';
+import CalendarView from './views/CalendarView/CalendarView';
 
 function App() {
   const [context, setContext] = useState({
@@ -46,6 +47,7 @@ function App() {
           <div className="main-content">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/calendar" element={<CalendarView />} />
               <Route path="/home" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/login" element={<Login />} />
