@@ -5,8 +5,8 @@ import { loginUser, registerUser, signInWithGoogle } from "../../service/auth";
 import { createUserUsername } from "../../service/user";
 import Button from "../../components/Button/Button";
 import toast from "react-hot-toast";
-import { deleteUser, sendEmailVerification } from "firebase/auth";
-import { auth } from "../../config/firebase-config";
+
+
 
 const Register = () => {
     const navigation = useNavigate();
@@ -45,6 +45,7 @@ const Register = () => {
     const handleGoogleSingIn = async (): Promise<void> => {
         try {
             await signInWithGoogle();
+          
             navigation('/home');
         } catch (error) {
             toast.error('Error signing in with Google');
