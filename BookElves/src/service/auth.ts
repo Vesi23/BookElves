@@ -1,5 +1,6 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import { auth, googleProvider } from '../config/firebase-config';
+import { getDatabase, ref, set } from 'firebase/database';
 
 /**
  * Registers a user with the provided email and password.
@@ -15,9 +16,31 @@ export const registerUser = (email: string, password: string) => {
  * Signs in with Google.
  * @returns {Promise<any>} A promise that resolves with the sign-in result or rejects with an error.
  */
+// export const signInWithGoogle = async () => {
+//   try {
+//     const result = await signInWithPopup(auth, googleProvider);
+//     return result;
+//   } catch (error) {
+//     return error;
+//   }
+// }
 export const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, googleProvider);
+
+    // The signed-in user info.
+    const user = result.user;
+
+    // Get a reference to the database service
+    const database = getDatabase();
+    
+    // Write user data to Realtime Database
+    set(ref(database, 'users/' + user.displayName), {
+      username: user.uid,
+      email: user.email,
+      profile_picture: user.photoURL
+    });
+
     return result;
   } catch (error) {
     return error;
