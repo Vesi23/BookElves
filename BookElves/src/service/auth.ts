@@ -1,5 +1,5 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { auth } from '../config/firebase-config';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import { auth, googleProvider } from '../config/firebase-config';
 
 /**
  * Registers a user with the provided email and password.
@@ -10,6 +10,19 @@ import { auth } from '../config/firebase-config';
 export const registerUser = (email: string, password: string) => {
   return createUserWithEmailAndPassword(auth, email, password);
 };
+
+/**
+ * Signs in with Google.
+ * @returns {Promise<any>} A promise that resolves with the sign-in result or rejects with an error.
+ */
+export const signInWithGoogle = async () => {
+  try {
+    const result = await signInWithPopup(auth, googleProvider);
+    return result;
+  } catch (error) {
+    return error;
+  }
+}
 
 /**
  * Logs in a user with the provided email and password.
