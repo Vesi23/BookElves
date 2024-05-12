@@ -5,7 +5,7 @@ import { loginUser, registerUser, signInWithGoogle } from "../../service/auth";
 import { createUserUsername } from "../../service/user";
 import Button from "../../components/Button/Button";
 import toast from "react-hot-toast";
-
+import './Register.css';
 
 
 const Register = () => {
@@ -83,6 +83,7 @@ const Register = () => {
                 {/* Add Google singin-btn */}
                 <div className='google-signin'>
                     <Button onClick={handleGoogleSingIn}>Sign in with Google</Button>
+                    
                     </div>
             </div>
         </>
