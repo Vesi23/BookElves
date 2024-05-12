@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { checkRegister } from "../../validations/register";
-import { loginUser, registerUser } from "../../service/auth";
+import { loginUser, registerUser, signInWithGoogle } from "../../service/auth";
 import { createUserUsername } from "../../service/user";
 import Button from "../../components/Button/Button";
+import toast from "react-hot-toast";
+import { deleteUser, sendEmailVerification } from "firebase/auth";
+import { auth } from "../../config/firebase-config";
 
 const Register = () => {
     const navigation = useNavigate();
@@ -39,6 +42,14 @@ const Register = () => {
         }
     }
 
+    const handleGoogleSingIn = async (): Promise<void> => {
+        try {
+            await signInWithGoogle();
+            navigation('/home');
+        } catch (error) {
+            toast.error('Error signing in with Google');
+        }
+    }
 
     const errorColor = (property: string): string => {
         if (error[property as keyof typeof error] === 'valid') {
@@ -68,6 +79,10 @@ const Register = () => {
                 <div className='register-btn'>
                     <Button onClick={submit}>submit</Button>
                 </div>
+                {/* Add Google singin-btn */}
+                <div className='google-signin'>
+                    <Button onClick={handleGoogleSingIn}>Sign in with Google</Button>
+                    </div>
             </div>
         </>
 
