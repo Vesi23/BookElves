@@ -1,108 +1,81 @@
-.signin-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background-color: #ffffff;
-    padding: 30px;
-    width: 450px;
-    border-radius: 20px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  
-  .signin-container h1 {
-    text-align: center;
-  }
-  
-  .signin-container label {
-    color: #151717;
-    font-weight: 600;
-  }
-  
-  .signin-container input {
-    border: 1.5px solid #ecedec;
-    border-radius: 10px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    transition: 0.2s ease-in-out;
-    margin-left: 10px;
-    border-radius: 10px;
-    border: none;
-    width: 85%;
-    height: 100%;
-  }
-  
-  .signin-container input:focus {
-    outline: none;
-  }
-  
-  .signin-container input:focus-within {
-    border: 1.5px solid #2d79f3;
-  }
-  
-  .signin-btn {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-    justify-content: space-between;
-  }
-  
-  .signin-btn > div > label {
-    font-size: 14px;
-    color: black;
-    font-weight: 400;
-  }
-  
-  .signin-btn .span {
-    font-size: 14px;
-    margin-left: 5px;
-    color: #2d79f3;
-    font-weight: 500;
-    cursor: pointer;
-  }
-  
-  .button-submit {
-    margin: 20px 0 10px 0;
-    background-color: #151717;
-    border: none;
-    color: white;
-    font-size: 15px;
-    font-weight: 500;
-    border-radius: 10px;
-    height: 50px;
-    width: 100%;
-    cursor: pointer;
-  }
-  
-  .button-submit:hover {
-    background-color: #252727;
-  }
-  
-  .signin-container p {
-    text-align: center;
-    color: black;
-    font-size: 14px;
-    margin: 5px 0;
-  }
-  
-  .google-signin {
-    margin-top: 10px;
-    width: 100%;
-    height: 50px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 500;
-    gap: 10px;
-    border: 1px solid #ededef;
-    background-color: white;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-  }
-  
-  .google-signin:hover {
-    border: 1px solid #2d79f3;
-  }
+.regster-container {
+  width: 350px;
+  height: 500px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 20px 30px;
+  position: relative;
+  left: 560px;
+}
+
+.r-title {
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 10px 0 30px 0;
+  font-size: 28px;
+  font-weight: 800;
+}
+.form{
+  border-radius: 20px;
+  border: 1px solid #c0c0c0;
+  outline: 0 !important;
+  box-sizing: border-box;
+  padding: 12px 15px;
+}
+
+.signin {
+  float: right;
+  max-width: 320px;
+  display: flex;
+  /* padding: 0.5rem 1.4rem; */
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  vertical-align: middle;
+  align-items: center;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  gap: 0.75rem;
+  color: #c4d2dc;
+  background-color: #19242b;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0, 0.87, 0.12, 1);
+  position: relative;
+  top: 35px;
+  right: 40px;
+}
+
+.signin:hover {
+  transform: scale(1.025);
+}
+
+.signin:active {
+  transform: scale(0.975);
+}
+
+button svg {
+  height: 24px;
+  width: auto;
+}
+
+.register-btn{
+  padding: 10px 15px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  border-radius: 20px;
+  border: 0 !important;
+  outline: 0 !important;
+  background: teal;
+  color: white;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 0.25s cubic-bezier(0, 0.87, 0.12, 1);
+  width: 255px;
+  position: relative;
+  top:20px;
+}
