@@ -3,6 +3,7 @@ import { useAppContext } from "../../context/appContext";
 import { ref,  update } from "firebase/database";
 import { saveImage } from "../../service/storage";
 import { db } from "../../config/firebase-config";
+import './Profile.css';
 
 const Profile = () => {
     const { userData } = useAppContext();
@@ -45,7 +46,7 @@ const Profile = () => {
     return (
     userData && <div>
         <h1>Profile</h1>
-        {userData.image && <img src={image} alt="profile" />}
+        {userData.image && <img src={image} alt="profile" className="profile-img" />}
       <div className="profile-edit">
       <label htmlFor="file-input" className='file-input-label'>Upload Image</label>
           <input type="file" id="file-input" className='file-input' onChange={handleImage} />
