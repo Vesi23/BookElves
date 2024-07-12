@@ -130,3 +130,8 @@ export const getPostsByCategory = async (category: string) => {
         totalPages: snapshot.val().totalPages,
     }))
 }
+// export const fetchLikedPosts= async (userId: string) => {
+//     const response = await fetch(`users/${userId}/liked-posts`);
+//     const posts = await response.json();
+//     return posts;
+// }
