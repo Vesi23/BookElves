@@ -29,7 +29,7 @@ const Header = () => {
     <div className="nav-links">
       {user && <button onClick={logout} className='logout'>Logout</button>}
       <NavLink to="/home" className='home'><img src={houseDoor} alt="Home" /></NavLink>
-      {user && <NavLink to="/Like" className='create-post'><img src={balloonHeart} alt="Balloon Heart" /></NavLink>}
+      {user && <NavLink to="/like-post" className='create-post'><img src={balloonHeart} alt="Balloon Heart" /></NavLink>}
       {user && <NavLink to="/create" className='create-post'><img src={plusCircle} alt="Plus Circle" /></NavLink>}
       {user && <NavLink to="/friends" className='friends'><img src={peopleFill} alt="Friends" /></NavLink>}
       {user && <NavLink to="/posts" className='posts'><img src={postcard} alt="Post" /></NavLink>}
