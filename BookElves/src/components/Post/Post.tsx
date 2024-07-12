@@ -4,7 +4,7 @@ import { removeLike, addLike } from "../../service/post";
 import Image from "../Images/Images";
 import { NavLink } from "react-router-dom";
 import './Post.css';
-import { useState } from "react";
+// import { useState } from "react";
 
 type Post = {
     id: string;
@@ -30,7 +30,7 @@ type PostProps = {
 
 const Post: React.FC<PostProps> = ({ post, setPosts }) => {
     const { userData } = useAppContext();
-    const [isLiked, setIsLiked] = useState<boolean>(false);
+    // const [isLiked, setIsLiked] = useState<boolean>(false);
 
     const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
        if(userData){
@@ -42,14 +42,7 @@ const Post: React.FC<PostProps> = ({ post, setPosts }) => {
        }
     }
     const handleLike = async () => {
-        // if (userData) {
-        //     if (post.likedBy.includes(userData?.username)) {
-        //         await removeLike(userData.username, post.id, post.likes - 1);
 
-        //     } else {
-        //         await addLike(userData.username, post.id, post.likes + 1);
-
-        //     }
         if (userData) {
             let newLikeStatus;
             if (post.likedBy.includes(userData?.username)) {
