@@ -21,15 +21,31 @@ const Profile = () => {
         setImage(userData.image);
     }, [userData]);
 
-    const handleImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files && e.target.files[0];
+    // const handleImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    //     const file = e.target.files && e.target.files[0];
 
-        if (file) {
-            const imgURL = await saveImage(file);
-            imgURL && setImage(imgURL);
-            update(ref(db, `users/${userData.username}/`), { image: imgURL })
-        }
-    };
+    //     if (file) {
+    //         const imgURL = await saveImage(file);
+    //         imgURL && setImage(imgURL);
+    //         update(ref(db, `users/${userData.username}/`), { image: imgURL })
+    //     }
+    // };
+    const handleImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
+      const file = e.target.files && e.target.files[0];
+  
+      if (file) {
+          try {
+              const imgURL = await saveImage(file);
+              if (imgURL) {
+                  setImage(imgURL);
+                  await update(ref(db, `users/${userData.username}/`), { image: imgURL });
+              }
+          } catch (error) {
+              console.error("Error uploading image: ", error);
+              // Optionally, set an error message state to display to the user
+          }
+      }
+  };
 
     const handleSubmit = async () => {
         update(ref(db, `users/${userData.username}/`), { firstName: firstName, lastName: lastName, email: email });
