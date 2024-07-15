@@ -19,6 +19,7 @@ import Posts from './views/Posts/Posts';
 import BookSearch from './views/ReadBook/ReadBook';
 import CalendarView from './views/CalendarView/CalendarView';
 import LikedPosts from './views/LikePosts/LikePosts';
+import Category from './components/Category/Category';
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
           <div className="main-content">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/category/:categoryName" element={<Category />} />
               <Route path="/calendar" element={<CalendarView />} />
               <Route path="/home" element={<Home />} />
               <Route path="/about" element={<About />} />
