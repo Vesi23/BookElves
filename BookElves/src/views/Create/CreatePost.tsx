@@ -22,9 +22,8 @@ const CreatePost = () => {
   const [totalPages, setTotalPages] = useState('');
   const [pagesRead, setPagesRead] = useState('');
 
-  const handleSubmit = (event: any) => {
+  const handleCategory = (event: any) => {
     setCategory(event.target.value);
-
   };
 
   const updatePost = (value: string, key: string) => {
@@ -108,6 +107,7 @@ const CreatePost = () => {
   };
 
 
+
   return (
     <div className="create-post-div">
       <h2 id='create-h2'>Create post</h2>
@@ -123,7 +123,21 @@ const CreatePost = () => {
       <input value={pagesRead} onChange={e => setPagesRead(e.target.value)} type="number" name="input-read-pages" id="input-read-pages" onBlur={handlePageCounter} min={0} /><br />
       <label htmlFor="input-total-pages" id='input-total-pages'>Total pages:</label>
       <input value={totalPages} onChange={e => setTotalPages(e.target.value)} type="number" name="input-total-pages" id="input-total-pages" onBlur={handlePageCounter} min={0} /><br />
-
+<form>
+  <select id='select-category' value={category} onChange={handleCategory}>
+    <option value="Select Category">Select Category</option>
+    <option value="fantasy">Fantasy</option>
+    <option value="sci-fi">Science Fiction</option>
+    <option value="mystery">Mystery</option>
+    <option value="romance">Romance</option>
+    <option value="horror">Horror</option>
+    <option value="thriller">Thriller</option>
+    <option value="historical_fiction">Historical Fiction</option>
+    <option value="non-fiction">Non-Fiction</option>
+    <option value="biography">Biography</option>
+    <option value="autobiography">Autobiography</option>
+    </select>
+</form>
       <Button id='btn-create' onClick={createPost}>Create</Button>
 
 
