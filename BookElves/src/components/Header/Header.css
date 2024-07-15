@@ -3,13 +3,17 @@
   flex-direction: column;
   align-items: flex-end;
   z-index: 999;
-  /* cklick on the botton */
+  min-width: 200px; /* Example fixed width */
+  min-height: 100px; /* Example minimum height */
+  position: fixed; /* Or `absolute`, depending on the desired behavior */
+  top: 250px; /* Adjust based on desired position */
+  right: 1600px; /* Adjust based on desired position */
 }
-
 .logout {
   display: flex;
   position: relative;
-  left: 1380px;
+  left: 1500px;
   z-index: 999;
+  bottom: 170px;
   /* cklick on the botton */
 }
