@@ -20,6 +20,7 @@ import BookSearch from './views/ReadBook/ReadBook';
 import CalendarView from './views/CalendarView/CalendarView';
 import LikedPosts from './views/LikePosts/LikePosts';
 import Category from './components/Category/Category';
+import Friends from './views/Friends/Friends';
 
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
               <Route path='/create' element={<CreatePost/>} />
               <Route path='/posts' element={<Posts/>} />
               <Route path='/like-post' element={<LikedPosts/>} />
+              <Route path='friends' element={<Friends/>}/>
               {/* this is for book-> read and search */}
               <Route path='/books' element={<BookSearch/>}/>
               <Route path="*" element={<h1>Not Found</h1>} />
