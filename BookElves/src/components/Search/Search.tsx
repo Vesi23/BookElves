@@ -1,15 +1,12 @@
 import { useEffect, useState } from "react";
 import { getAllUsers } from "../../service/user";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, } from "react-router-dom";
 import { useAppContext } from "../../context/appContext";
 import { getDatabase, ref, update } from "firebase/database";
 import Button from "../Button/Button";
 
-interface UserSearchProps {
-    type?: string;
-}
 
-const Search = ({ type = 'Search' }: UserSearchProps) => {
+const Search = () => {
     const { userData } = useAppContext();
     const [users, setUsers] = useState<any>([]);
     const [search, setSearch] = useState('');
@@ -78,7 +75,6 @@ const Search = ({ type = 'Search' }: UserSearchProps) => {
                                             {userData?.username !== user?.username && !isAlreadyFriend && !isAlreadyRequested && <Button className='search-modal-btn' onClick={() => handleAddFriend(user)}>Add Friend</Button>}
                                         </div>
                                     </div>
-
                                 )
                             })}
                         </div>

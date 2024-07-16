@@ -21,15 +21,6 @@ const Profile = () => {
         setImage(userData.image);
     }, [userData]);
 
-    // const handleImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    //     const file = e.target.files && e.target.files[0];
-
-    //     if (file) {
-    //         const imgURL = await saveImage(file);
-    //         imgURL && setImage(imgURL);
-    //         update(ref(db, `users/${userData.username}/`), { image: imgURL })
-    //     }
-    // };
     const handleImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
       const file = e.target.files && e.target.files[0];
   
