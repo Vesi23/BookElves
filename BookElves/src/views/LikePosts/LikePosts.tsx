@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Post from "../../components/Post/Post";
 import { useAppContext } from "../../context/appContext";
 import { getAllPosts } from "../../service/post";
+// import './LikedPosts.css';  
 
 const LikedPosts: React.FC = () => {
     const { userData } = useAppContext();

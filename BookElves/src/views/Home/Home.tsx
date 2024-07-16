@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom";
+import './Home.css';
 
 const Home = () => {
   return (
-    <div>
+    <div className="home-view">
       <NavLink to='/category/fantasy' className='nav-link'>Fantasy</NavLink>
       <NavLink to='/category/sci-fi' className='nav-link'>Sci-Fi</NavLink>
       <NavLink to='/category/mystery' className='nav-link'>Mystery</NavLink>

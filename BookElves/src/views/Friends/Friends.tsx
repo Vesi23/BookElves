@@ -3,6 +3,7 @@ import FriendsList from "../../components/FriendsList/FriendsList";
 import FriendsRequest from "../../components/FriendsRequest/FriendsRequest";
 import FriendsBlock from "../../components/FriendsBlock/FriendsBlock";
 import Search from "../../components/Search/Search";
+import './Friends.css';
 
 const Friends = () => {
     const [view, setView] = useState('friendsList');//status->default
@@ -21,7 +22,7 @@ const Friends = () => {
     };
 
     return (
-        <div>
+        <div id="friends-view">
             <div>
                 <button onClick={() => setView('friendsList')}>Friends</button>
                 <button onClick={() => setView('friendsRequest')}>Friend Requests</button>

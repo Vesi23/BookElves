@@ -119,25 +119,26 @@ const CreatePost = () => {
       <label htmlFor="input-image" id='input-image'>Image:</label>
       <input id="input-image" type="file" accept="image/*" onChange={e => updateImage(e.target.files, 'imagePost')} /><br />
       {/* pages */}
-      <label htmlFor="input-read-pages" id='input-read-pages'>Pages read:</label>
-      <input value={pagesRead} onChange={e => setPagesRead(e.target.value)} type="number" name="input-read-pages" id="input-read-pages" onBlur={handlePageCounter} min={0} /><br />
       <label htmlFor="input-total-pages" id='input-total-pages'>Total pages:</label>
       <input value={totalPages} onChange={e => setTotalPages(e.target.value)} type="number" name="input-total-pages" id="input-total-pages" onBlur={handlePageCounter} min={0} /><br />
-<form>
-  <select id='select-category' value={category} onChange={handleCategory}>
-    <option value="Select Category">Select Category</option>
-    <option value="fantasy">Fantasy</option>
-    <option value="sci-fi">Science Fiction</option>
-    <option value="mystery">Mystery</option>
-    <option value="romance">Romance</option>
-    <option value="horror">Horror</option>
-    <option value="thriller">Thriller</option>
-    <option value="historical_fiction">Historical Fiction</option>
-    <option value="non-fiction">Non-Fiction</option>
-    <option value="biography">Biography</option>
-    <option value="autobiography">Autobiography</option>
-    </select>
-</form>
+      <label htmlFor="input-read-pages" id='input-read-pages'>Pages read:</label>
+      <input value={pagesRead} onChange={e => setPagesRead(e.target.value)} type="number" name="input-read-pages" id="input-read-pages" onBlur={handlePageCounter} min={0} /><br />
+    
+      <form>
+        <select id='select-category' value={category} onChange={handleCategory}>
+          <option value="Select Category">Select Category</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="sci-fi">Science Fiction</option>
+          <option value="mystery">Mystery</option>
+          <option value="romance">Romance</option>
+          <option value="horror">Horror</option>
+          <option value="thriller">Thriller</option>
+          <option value="historical_fiction">Historical Fiction</option>
+          <option value="non-fiction">Non-Fiction</option>
+          <option value="biography">Biography</option>
+          <option value="autobiography">Autobiography</option>
+        </select>
+      </form>
       <Button id='btn-create' onClick={createPost}>Create</Button>
 
 
