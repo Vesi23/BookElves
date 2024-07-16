@@ -19,9 +19,11 @@ const Posts = () => {
     }, [searchPosts]);
 
     return (
-        <>
-            <label htmlFor="search">Search</label>
-            <input type="text" id="search" value={searchPosts} onChange={(e) => setSearchPosts(e.target.value)} />
+        <div id='posts-view'>
+
+        <label htmlFor="search">Search</label>
+            <input type="text" id="search" value={searchPosts} onChange={(e) => setSearchPosts(e.target.value)}  />
+          
 
             {posts.length > 0 ? (
                 posts.map((post) => (
@@ -31,7 +33,7 @@ const Posts = () => {
             ) :
                 (<h1>No posts found</h1>)
             }
-        </>
+        </div>
     );
 
 

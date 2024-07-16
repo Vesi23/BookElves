@@ -74,7 +74,7 @@ const Post: React.FC<PostProps> = ({ post, setPosts }) => {
         };
     }
 
-    // console.log(post.pagesRead, post.totalPages); // should log 23 and 200
+    
 
     return (
         <>
@@ -87,8 +87,8 @@ const Post: React.FC<PostProps> = ({ post, setPosts }) => {
                 <div id="post-info">
                     <h3>{post.title}</h3>
                     <p className="description">{post.description}</p>
-                    {post.imagePost && <img src={post.image} alt="post"  className="post-img"/>}
-                    {post.pagesRead && <p>Pages read: {post.pagesRead}/{post.totalPages}</p>}
+                    {post?.imagePost && <img src={post.image} alt="post"  className="post-img"/>}
+                    {post.pagesRead > 0 && <p>Pages Read: {post.pagesRead} / {post.totalPages}</p>}
 
                 </div>
                 <div className="heart-container" title={post.likedBy.includes(userData?.username) ? 'Unlike' : 'Like'} onClick={handleLike}>
