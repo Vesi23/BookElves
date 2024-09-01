@@ -40,6 +40,8 @@ const Profile = () => {
 
     const handleSubmit = async () => {
         update(ref(db, `users/${userData.username}/`), { firstName: firstName, lastName: lastName, email: email });
+      
+        
     };
 
     const loadProfile = () => {
@@ -48,6 +50,8 @@ const Profile = () => {
         setEmail(userData?.email || '');
         setImage(userData?.image || '');
         setShowEdit(!showEdit);
+      
+        
     };
 
     return (

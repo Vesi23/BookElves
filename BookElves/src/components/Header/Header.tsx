@@ -15,7 +15,8 @@ import './Header.css';
 
 const Header = () => {
   const navigate = useNavigate();
-  const { user, setContext } = useAppContext();
+  const { user, userData, setContext } = useAppContext();
+ 
 
   const logout = async () => {
     await logoutUser();
@@ -23,8 +24,9 @@ const Header = () => {
     navigate('/home');
   }
 
-
-
+  const profile = () => {
+    navigate(`/profile/${userData?.username}`);
+  };
   return (
     <div className="nav-links">
       {user && <button onClick={logout} className='logout'>Logout</button>}
@@ -37,7 +39,7 @@ const Header = () => {
       <NavLink to="/about" className='about'>About</NavLink>
       {!user && <NavLink to="/register" className='register'>Register</NavLink>}
       {!user && <NavLink to="/login" className='login'>Login</NavLink>}
-      {user && <NavLink to="/profile" className='profile'>Profile</NavLink>}
+      {user && <button onClick={profile} className='profile'>Profile</button>}
     </div>
   )
 }
