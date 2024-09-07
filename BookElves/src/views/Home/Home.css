@@ -2,3 +2,9 @@
     position:relative;
     top:80px;
 }
+
+.category-image{
+    width:14%;
+    height:14%;
+    object-fit:cover;
+}
