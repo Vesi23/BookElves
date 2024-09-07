@@ -5,6 +5,8 @@ import { saveImage } from "../../service/storage";
 import { db } from "../../config/firebase-config";
 import { useParams } from "react-router-dom";
 import './Profile.css';
+import Post from "../../components/Post/Post";
+import { getAllPosts } from "../../service/post";
 
 const Profile = () => {
     const { username } = useParams(); // Get the username from the URL
@@ -15,6 +17,8 @@ const Profile = () => {
     const [email, setEmail] = useState<string>('');
     const [image, setImage] = useState<string>('');
     const [errorMessage] = useState('');
+
+    const [posts, setPosts] = useState<Post[]>([]);
 
     // Function to fetch user data based on username
     const fetchUserProfile = async (username: string) => {
@@ -27,6 +31,12 @@ const Profile = () => {
             return null;
         }
     };
+
+    useEffect(() => {
+        getAllPosts("").then((posts) => setPosts(posts));
+    }, []);
+
+    const myPosts = posts.filter((post) => post.author === username);
 
     useEffect(() => {
         const loadUserProfile = async () => {
@@ -85,10 +95,13 @@ const Profile = () => {
             <h1>Profile</h1>
             {image && <img src={image} alt="profile" className="profile-img" />}
             <div className="profile-edit">
-                <label htmlFor="file-input" className='file-input-label'>Upload Image</label>
-                <input type="file" id="file-input" className='file-input' onChange={handleImage} />
-               {/* render edit button based on username match */}
-                {userData.username===username && <button onClick={loadProfile} className="button-profile">Edit✎</button>}
+                {/* render file input based on username match */}
+                {userData.username === username &&
+                    <label htmlFor="file-input" className='file-input-label'>Upload Image</label> &&
+                    <input type="file" id="file-input" className='file-input' onChange={handleImage} />}
+
+                {/* render edit button based on username match */}
+                {userData.username === username && <button onClick={loadProfile} className="button-profile">Edit✎</button>}
             </div>
             {showEdit ? (
                 <form className='edit-form-overlay'>
@@ -107,13 +120,26 @@ const Profile = () => {
                 </form>
             ) : null}
             <div className='info-profile'>
-                <p>First Name: {firstName}</p>
-                <p>Last Name: {lastName}</p>
-                <p>Username: {username}</p>
-                <p>Email: {email}</p>
+                <p>{firstName}</p>
+                <p>{lastName}</p>
+                <p>{username}</p>
+                <p>{email}</p>
                 <p>Joined on: {new Date(userData?.createdOn).toLocaleDateString(undefined, { day: '2-digit', month: '2-digit', year: 'numeric' })}</p>
             </div>
+
+            <div>
+               <h2>My Books</h2>
+               {myPosts.length > 0 ? (
+                   myPosts.map((post) => (
+                       <Post key={post.id} post={post} setPosts={setPosts} />
+                     ))
+                ) : (   
+                    <p>No books</p>
+                )}
+            </div>
         </div>
+
+        
     );
 }
 
