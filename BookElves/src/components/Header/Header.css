@@ -3,16 +3,16 @@
   flex-direction: column;
   align-items: flex-end;
   z-index: 999;
-  min-width: 200px; /* Example fixed width */
-  min-height: 100px; /* Example minimum height */
   position: fixed; /* Or `absolute`, depending on the desired behavior */
   top: 250px; /* Adjust based on desired position */
-  right: 1600px; /* Adjust based on desired position */
+  
+  /* min-width: 200px; 
+  min-height: 100px;  */
 }
 .logout {
   display: flex;
   position: relative;
-  left: 1500px;
+  left: 2000px;
   z-index: 999;
   bottom: 170px;
   /* cklick on the botton */
